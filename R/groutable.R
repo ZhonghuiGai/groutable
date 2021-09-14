@@ -6,6 +6,7 @@
 #' @param method 1 - forces analysis as "normal-distributed";2 - forces analysis as "continuous non-normal";
 #' 3 - forces analysis as "categorical";4 - NA, which performs a Shapiro-Wilks test to decide between normal or non-normal.
 #' @param digits show the number of digits
+#' @param write.p.adjust logical value indicates whether write the adjustd p values
 #'
 #' @return a statistical table
 #' @export
@@ -23,7 +24,8 @@
 groutable <- function(data, variable = 1,
                       method = 1,
                       writeTab = FALSE,
-                      digits = 3){
+                      digits = 3,
+                      write.p.adjust = FALSE){
   data <- as.data.frame(data)
   name <- names(data)
   show.ratio <- nlevels(data[, variable]) == 2
@@ -52,9 +54,11 @@ groutable <- function(data, variable = 1,
     compareGroups::export2xls(t2, file = paste(name[variable],
                                                "compare_table.xlsx", sep = "_"),
                               which.table = "descr")
-    write.table(p.value, file = paste(name[variable],
-                                      "compare_table_pvalue.txt", sep = "_"),
-                sep = "\t", quote = FALSE)
+    if (write.p.adjust) {
+      write.table(p.value, file = paste(name[variable],
+                                        "compare_table_pvalue.txt", sep = "_"),
+                  sep = "\t", quote = FALSE)
+    }
   }
   return(t2)
 }
