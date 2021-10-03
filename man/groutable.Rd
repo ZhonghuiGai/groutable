@@ -4,7 +4,14 @@
 \alias{groutable}
 \title{This is a wrapper function of compareGroups package}
 \usage{
-groutable(data, variable = 1, method = 1, writeTab = FALSE, digits = 3)
+groutable(
+  data,
+  variable = 1,
+  method = 1,
+  writeTab = FALSE,
+  digits = 3,
+  write.p.adjust = FALSE
+)
 }
 \arguments{
 \item{data}{a data frame}
@@ -17,6 +24,8 @@ groutable(data, variable = 1, method = 1, writeTab = FALSE, digits = 3)
 \item{writeTab}{A boolean value to indicate whether to save the result or not}
 
 \item{digits}{show the number of digits}
+
+\item{write.p.adjust}{logical value indicates whether write the adjustd p values}
 }
 \value{
 a statistical table
