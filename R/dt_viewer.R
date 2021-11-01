@@ -18,10 +18,10 @@
 #' @author Zhonghui Gai
 #' @return A javascript-style datatable, which displays in the Rstudio viewer.
 #' @examples
-#' groutable(data = iris, variable = 5)  |> extract_groutable ()  |> dt()
+#' groutable(data = iris, variable = 5)  |> extract_groutable ()  |> ying_dt()
 #' kableExtra::kable_styling(kableExtra::kable(groutable(data = iris, variable = 5)  |>
 #' extract_groutable (), "html"))
-dt <- function(data, fontsize = 15, pageLength = Inf,
+ying_dt <- function(data, fontsize = 15, pageLength = Inf,
                maxchars = 250, maxrows = 500,
                rownames = FALSE, escape = FALSE,
                class = "compact cell-border stripe",

@@ -2,7 +2,8 @@
 
 export("%>%")
 export(col.order)
-export(dt)
+export(dt2)
 export(extract_groutable)
 export(groutable)
+export(ying_dt)
 importFrom(magrittr,"%>%")
