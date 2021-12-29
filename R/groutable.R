@@ -31,11 +31,11 @@ groutable <- function(data, variable = 1,
   name <- names(data)
   show.ratio <- nlevels(data[, variable]) == 2
   formula <- as.formula(paste0(name[variable], "~."))
-  t1 <- compareGroups::compareGroups(formula = formula, data = data,
+  t1 <- compareGroups(formula = formula, data = data,
                                      method = method,
                                      riskratio = FALSE,
                                      max.ylev = 7)
-  t2 <- compareGroups::createTable(t1, digits = digits, digits.ratio = 3, digits.p = 3,
+  t2 <- createTable(t1, digits = digits, digits.ratio = 3, digits.p = 3,
                                    show.ratio = show.ratio,
                                    show.all = FALSE, #Default value
                                    show.p.overall = TRUE, #Default value
